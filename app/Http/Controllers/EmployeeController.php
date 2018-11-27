@@ -13,11 +13,16 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   public function __construct()
+   {
+       $this->middleware('auth');
+   }
     public function index()
     {
         //
         // $employees = DB::table('employees')->get();
-        $employees = employees::all();
+        $employees = employees::paginate(5);
         // foreach($employees as $emp) {
         //   echo $emp->fname;
         // }

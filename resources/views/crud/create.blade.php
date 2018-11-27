@@ -2,12 +2,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container">
-  <div class="col-md-12">
-    <h1>{{$title}}</h1>
-  </div>
-  <div class="col-md-12">
-    <a href="/crud">Home </a>
-  </div>
+  <a href="/crud">Home </a>
   <form method="post" action="{{url('crud')}}">
     {{csrf_field()}}
     <div class="form-group row">
@@ -31,7 +26,7 @@
     <div class="form-group row">
       <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Telephone Number</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Telephone Number" name="tel_no">
+        <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Telephone" name="tel_no">
       </div>
     </div>
     <div class="form-group row">

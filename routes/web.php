@@ -16,6 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('index', function () {
     return view('index');
 });
@@ -30,8 +35,9 @@ Route::get('welcome/member','WelcomeController@member');
 Route::get('welcome/page/{id}','WelcomeController@page');
 Route::get('welcome/title','WelcomeController@title');
 
-
+//Route::get('/crud/create', 'EmployeeController@store');
 Route::resource('crud','EmployeeController');
 
-// Route::get('crud/edit','EmployeeController@edit');
-// Route::get('crud/create','EmployeeController@create');
+Route::get('bar-chart', 'ChartController@index')->middleware('auth');
+
+Route::get('send', 'MailController@send');
