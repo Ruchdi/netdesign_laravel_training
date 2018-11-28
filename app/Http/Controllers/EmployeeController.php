@@ -28,7 +28,7 @@ class EmployeeController extends Controller
         // }
         return view('crud.index', compact('employees'))
         ->with([
-          'title' => 'CRUD Training',
+          'title' => 'Employee',
           'subtitle' => 'Introduction CRUD'
         ]);
 

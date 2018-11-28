@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-4">
       <div class="float-right">
-        <a href="crud/create" class="btn btn-success">Add Employee</a>
+        <a href="user/create" class="btn btn-success">Add User</a>
       </div>
     </div>
     <div class="col-md-12">
@@ -14,27 +14,23 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Tel.</th>
             <th>Show</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($employees as $emp)
+          @foreach($users as $row)
           <tr>
-            <td>{{ $emp->id }}</td>
-            <td>{{ $emp->fname }}</td>
-            <td>{{ $emp->lname }}</td>
-            <td>{{ $emp->email }}</td>
-            <td>{{ $emp->tel_no }}</td>
-            <td><a href="{{action('EmployeeController@show', $emp->id)}}" class="btn btn-warning" target="_blank">Show</a></td>
-            <td><a href="{{action('EmployeeController@edit', $emp->id)}}" class="btn btn-primary">Edit</a></td>
+            <td>{{ $row->id }}</td>
+            <td>{{ $row->name }}</td>
+            <td>{{ $row->email }}</td>
+            <td><a href="/user/{{$row->id}}&page={{$page}}" class="btn btn-warning" target="_blank">Show</a></td>
+            <td><a href="{{action('UserController@edit', $row->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-              <form action="{{action('EmployeeController@destroy', $emp->id)}}" method="post">
+              <form action="{{action('UserController@destroy', $row->id)}}" method="post">
                 {{csrf_field()}}
                 <input name="_method" type="hidden" value="DELETE">
                 <button class="btn btn-danger" type="submit">Delete</button>
@@ -44,7 +40,7 @@
           @endforeach
         </tbody>
       </table>
-      {{ $employees->links() }}
+      {{ $users->links() }}
     </div>
   </div>
 @endsection
